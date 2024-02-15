@@ -28,12 +28,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
         },
       };
     }),
-    fallback: false,
+    fallback: true,
   };
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const posts = await getPost(ctx.params.slug);
+
+  if (!posts || posts.length === 0) {
+    return {
+      notFound: true, // Return a 404 page if the post is not found
+    };
+  }
 
   return {
     props: { post: posts[0] },
