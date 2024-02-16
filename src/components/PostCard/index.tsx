@@ -12,10 +12,10 @@ export const PostCard = ({ slug, title, cover }: PostCardProps) => {
     <Container>
       <PostCardCover>
         <Link
-          href="/posts/[slug]"
+          href="/post/[slug]"
           passHref
           legacyBehavior
-          as={`/posts/${slug}`}
+          as={`/post/${slug}`}
         >
           <a>
             <img src={cover} alt={title} />
@@ -25,10 +25,10 @@ export const PostCard = ({ slug, title, cover }: PostCardProps) => {
 
       <PostCardHeading>
         <Link
-          href="/posts/[slug]"
+          href="/post/[slug]"
           passHref
           legacyBehavior
-          as={`/posts/${slug}`}
+          as={`/post/${slug}`}
         >
           <a>{title}</a>
         </Link>

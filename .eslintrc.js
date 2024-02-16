@@ -5,11 +5,12 @@ module.exports = {
     node: true,
   },
   extends: [
-    'eslint:recommended',
+    ['eslint:recommended', "next"],
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
+    'plugin:@next/next/recommended',
   ],
   overrides: [
     {

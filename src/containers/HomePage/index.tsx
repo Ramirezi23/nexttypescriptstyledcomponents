@@ -28,7 +28,7 @@ export default function HomePage({ posts, category }: HomePageProps) {
       {category && <Category>Categoria {category}</Category>}
       <MainContainer>
         <Container>
-          {posts.map((post) => (
+          {posts && posts.map((post) => (
             <PostCard
               key={post.slug}
               cover={post.cover && post.cover.formats.small.url}
