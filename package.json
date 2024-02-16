@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.23.9",
+    "@netlify/plugin-nextjs": "^4.41.3",
     "disqus-react": "^1.1.5",
     "next": "14.1.0",
     "next-on-netlify": "^3.0.1",
