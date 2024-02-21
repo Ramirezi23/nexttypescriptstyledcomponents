@@ -18,7 +18,7 @@ export default function HomePage({ posts, category }: HomePageProps) {
   return (
     <>
       <Head>
-        <title>{SITE_NAME}</title>
+        <title>{category ? `${category} - ${SITE_NAME}` : SITE_NAME}</title>
         <meta
           name="description"
           content="Este é o meu blog de testes a typesript next strapi netlify entre outras artimanhas que não domino"
@@ -28,14 +28,15 @@ export default function HomePage({ posts, category }: HomePageProps) {
       {category && <Category>Categoria {category}</Category>}
       <MainContainer>
         <Container>
-          {posts && posts.map((post) => (
-            <PostCard
-              key={post.slug}
-              cover={post.cover && post.cover.formats.small.url}
-              slug={post.slug}
-              title={post.title}
-            />
-          ))}
+          {posts &&
+            posts.map((post) => (
+              <PostCard
+                key={post.slug}
+                cover={post.cover && post.cover.formats.small.url}
+                slug={post.slug}
+                title={post.title}
+              />
+            ))}
         </Container>
       </MainContainer>
       <Footer />
