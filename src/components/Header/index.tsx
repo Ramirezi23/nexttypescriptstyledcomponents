@@ -5,9 +5,7 @@ import { Container } from './styled';
 export const Header = () => {
   return (
     <Container>
-      <Link href="/" passHref legacyBehavior>
-        <a>{SITE_NAME}</a>
-      </Link>
+      <Link href="/">{SITE_NAME}</Link>
     </Container>
   );
 };

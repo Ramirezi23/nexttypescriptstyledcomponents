@@ -29,13 +29,17 @@ export const Post = ({ post }: PostProps) => {
       </Head>
       <Header />
 
+      {/*alteracao em baixo*/}
       <MainContainer>
         <Heading>{post.title}</Heading>
-        <PostCover coverUrl={post.cover.formats.large.url} alt={post.title} />
+        <PostCover
+          coverUrl={post.cover?.formats?.large?.url || ''}
+          alt={post.title}
+        />
         <PostDetails
-          author={post.author.name}
-          category={post.category.name}
-          date={post.created_at}
+          author={post.author?.name || ''}
+          category={post.category?.name || ''}
+          date={post.created_at || ''}
         />
         <PostContainer content={post.content} />
         <Comments title={post.title} slug={post.slug} />

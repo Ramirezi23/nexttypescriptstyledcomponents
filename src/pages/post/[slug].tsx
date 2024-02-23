@@ -18,7 +18,7 @@ const DynamicPost = ({ post }: DynamicPostProps) => {
     return <div>Loading, wait a moment...</div>;
   }
 
-  if (!post) {
+  if (!post?.title) {
     return <Error statusCode={404} />;
   }
 
@@ -33,9 +33,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: posts.map((post) => {
+      const slug =
+        typeof post.slug === 'string' ? post.slug : String(post.slug);
+
       return {
         params: {
-          slug: post.slug,
+          slug: slug,
         },
       };
     }),
@@ -45,9 +48,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const posts = await getPost(ctx.params.slug);
+  const post = posts.length > 0 ? posts[0] : {};
 
   return {
-    props: { post: posts[0] },
+    props: { post: post },
     revalidate: 600,
   };
 };
